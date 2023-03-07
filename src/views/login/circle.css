@@ -1,0 +1,14 @@
+.bola{
+    height: 30vh;
+    width: 30vw;
+    top: -10%;
+    right: 48%;
+    transform: translateY(-50%);
+    background-color: aqua;
+}
+
+button{
+    background: #000;
+    height: 30px;
+    width: 100px;
+}
