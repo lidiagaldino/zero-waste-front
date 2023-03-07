@@ -1,6 +1,10 @@
 import { motion } from 'framer-motion'
 import React, { useState } from 'react'
+
 import './circle.css'
+import './button.css'
+import './style.css'
+import Form from './components/Form'
 
 const Login = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -15,7 +19,7 @@ const Login = () => {
         scale: 1
     },
     visible: {
-        scale: 180,
+        scale: 2,
         transition: {
             type: 'spring',
             stiffness: 160,
@@ -75,17 +79,16 @@ visible: {
 }
   
   return (
-    <div>
-      <button onClick={() => setIsOpen(true)}>Registre-se</button>
-      <motion.div variants={signInContainerVariants} initial='visible' animate={isSignInContainerOpen ? 'visible' : 'hidden'}>
-        
-      </motion.div>
+    <div className='container'>
+      <button className='button' onClick={() => setIsOpen(true)}>Registre-se</button>
+
+      <motion.div variants={signInContainerVariants} initial='visible' animate={isSignInContainerOpen ? 'visible' : 'hidden'}></motion.div>
       <motion.div variants={signUpContainerVariants} initial='hidden' animate={isSignUpContainerOpen ? 'visible' : 'hidden'}></motion.div>
 
-      <motion.div className='bola' variants={circleVariants} initial='hidden' animate={isOpen ? 'visible' : 'hidden'} ></motion.div>
+      <motion.div className='circle' variants={circleVariants} initial='hidden' animate={isOpen ? 'visible' : 'hidden'} ></motion.div>
 
-      <motion.div variants={signInVariants} initial='visible' animate={isSignInOpen ? 'visible' : 'hidden'}>
-
+      <motion.div variants={signInVariants} initial='visible' animate={isSignInOpen ? 'visible' : ''}>
+        <Form />
       </motion.div>
       <motion.div variants={signUpVariants} initial='hidden' animate={isSignUpOpen ? 'visible' : 'hidden'}></motion.div>
     </div>

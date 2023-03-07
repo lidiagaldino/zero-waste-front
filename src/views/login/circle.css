@@ -1,14 +1,11 @@
-.bola{
-    height: 30vh;
-    width: 30vw;
-    top: -10%;
-    right: 48%;
-    transform: translateY(-50%);
-    background-color: aqua;
-}
-
-button{
-    background: #000;
-    height: 30px;
-    width: 100px;
+.circle{
+    position: absolute;
+    height: 1500px;
+    width: 1500px;
+    top: -70%;
+    left: -35%;
+    background-image: linear-gradient(to top left, #694C08 0%, #078d10 100%);
+    z-index: 6;
+    border-radius: 50%;
+    box-shadow: 5px 10px 15px 2px rgb(0 0 0 /27%);
 }
