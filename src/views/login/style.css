@@ -1,8 +1,9 @@
-.container{
+.container {
     position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
     overflow-y: hidden;
     height: 100vh;
+    background-color: #333;
 }
