@@ -1,12 +1,37 @@
 import React from 'react'
+import '../styles/formSignUp.css'
 import logo from '../../../assets/logo.png'
-import { User, Phone } from 'phosphor-react'
-import * as Switch from '@radix-ui/react-switch';
+import { User, Phone, HandPointing, Envelope, Lock, Recycle } from 'phosphor-react'
+
+import { Switch } from 'antd'
+import SwitchSelector from "react-switch-selector";
+
+const options = [
+    {
+      label: "Pessoa Juridica",
+      value: "rent",
+      selectedBackgroundColor: "#5DD490",
+      fontColor: "#5DD490"
+      //border:"1px solid black"
+    },
+    {
+      label: "Pessoa Fisica",
+      value: "purchase",
+      selectedBackgroundColor: "#",
+      fontColor: "#"
+    }   
+  ];
+  
+  const onChange = (newValue: any) => {
+    console.log(newValue);
+  };
+  
+  const initialSelectedIndex = options.findIndex(({ value }) => value === "bar");
 
 function RegisterForm() {
     return (
         <form id="form-sign-up" action="#" className="sign-up-form">
-            <img src={logo} alt="logo" />
+            <img src={logo} className='logoo' alt="logo" />
             <h2 className='title'>Registrar-se</h2>
             <div className="input-field">
                 <i><User /></i>
@@ -18,12 +43,15 @@ function RegisterForm() {
                 <input type="number" id="telefone" placeholder="Telefone" required />
             </div>
 
-            <button type="submit" value="Entrar" className="btn solid" id="sign-in">Registrar-se</button>
+          <div  className="your-required-wrapper" style={{width: 100, height: 30}}>
+          <SwitchSelector
+            onChange={onChange}
+            options={options}
+        />
+          </div>
+            
 
 
-            <Switch.Root className="actionBtns" id="airplane-mode">
-                <Switch.Thumb className="SwitchThumb" />
-            </Switch.Root>
 
 
 
@@ -68,12 +96,12 @@ function RegisterForm() {
             <ul id="lista" className="list-items"></ul>
 
             <div className="divbotao">
-                <button type="button"
+                <button type="button" className="btnescolha" id="btn-catador"
                     value="Catador(a)">Catador(a)</button>
-                <button type="button"
+                <button type="button" className="btnescolha" id="btn-gerador"
                     value="Gerador de residuo">Gerador de residuo</button>
             </div>
-
+            <button type="submit" value="Registar-se" className="btn solid" id="sign-in">Registrar-se</button>
 
         </form >
     )
