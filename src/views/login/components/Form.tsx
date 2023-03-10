@@ -1,13 +1,15 @@
-import React, { ChangeEvent, FormEvent, useEffect, useState } from 'react'
+import React, { ChangeEvent, FormEvent, useContext, useState } from 'react'
 import logo from '../../../assets/logo.png'
 import '../styles/formSignIn.css'
 import '../styles/button.css'
 import { Person, Envelope } from 'phosphor-react'
-import { api } from '../../../lib/axios'
+import { Navigate, useLocation, useNavigate } from 'react-router-dom'
 
 const form = () => {
   const [emailState, setEmailState] = useState({ value: '' })
   const [passState, setPassState] = useState({ value: '' })
+
+  const navigate = useNavigate()
 
 
 
@@ -26,13 +28,25 @@ const form = () => {
       return
     }
 
-    const teste = await api.post('/user/auth', {
-      email: emailState,
-      senha: passState
+    const user = {
+      email: emailState.value,
+      senha: passState.value
+    }
+
+    const teste = await fetch('https://webappdeploy-backend.azurewebsites.net/user/auth', {
+      method: 'POST',
+      body: JSON.stringify(user),
+      headers: {
+        'content-type': 'application/json'
+      }
     })
 
     setEmailState({value: ''})
     setPassState({value: ''})
+
+    if (teste.ok) {
+      navigate('/home')
+    }
 
     console.log(teste)
   }

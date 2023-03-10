@@ -1,34 +1,43 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../styles/formSignUp.css'
 import logo from '../../../assets/logo.png'
 import { User, Phone, HandPointing, Envelope, Lock, Recycle } from 'phosphor-react'
-
-import { Switch } from 'antd'
 import SwitchSelector from "react-switch-selector";
+import DropDown from './DropDown';
+import drop from '../styles/drop.css'
 
-const options = [
-    {
-      label: "Pessoa Juridica",
-      value: "rent",
-      selectedBackgroundColor: "#5DD490",
-      fontColor: "#5DD490"
-      //border:"1px solid black"
-    },
-    {
-      label: "Pessoa Fisica",
-      value: "purchase",
-      selectedBackgroundColor: "#",
-      fontColor: "#"
-    }   
-  ];
+
+
   
-  const onChange = (newValue: any) => {
-    console.log(newValue);
-  };
-  
-  const initialSelectedIndex = options.findIndex(({ value }) => value === "bar");
+
 
 function RegisterForm() {
+
+    const options = [
+        {
+          label: "Pessoa Juridica",
+          value: "CNPJ",
+          selectedBackgroundColor: "#fff",
+          fontColor: "#000000"
+        },
+        {
+          label: "Pessoa Fisica",
+          value: "CPF",
+          selectedBackgroundColor: "#fff",
+          fontColor: "#000000"
+    
+        }   
+      ];
+
+    const [cpfCnpj, setCpfCnpj] = useState('CNPJ')
+
+
+    const onChange = (newValue: any) => {
+      setCpfCnpj(newValue)
+    };
+
+
+
     return (
         <form id="form-sign-up" action="#" className="sign-up-form">
             <img src={logo} className='logoo' alt="logo" />
@@ -43,13 +52,16 @@ function RegisterForm() {
                 <input type="number" id="telefone" placeholder="Telefone" required />
             </div>
 
-          <div  className="your-required-wrapper" style={{width: 100, height: 30}}>
+            <div  className="sw" style={{width: 350, height: 45}}>
           <SwitchSelector
             onChange={onChange}
             options={options}
+            backgroundColor={"#006400"}
+            selectedFontColor={"#000000"}
+            
+            
         />
           </div>
-            
 
 
 
@@ -57,12 +69,12 @@ function RegisterForm() {
 
             <div className="input-field" id="adicionar_CPFCNPJ">
                 <i className="fa-solid fa-file" id="icone_cpfcnpj"></i>
-                <input type="text" placeholder="CNPJ" id="text_cpfcnpj"
+                <input type="text" placeholder={cpfCnpj} id="text_cpfcnpj"
                 />
             </div>
 
             <div className="input-field">
-                <i className="fa-solid fa-envelope"></i>
+                <i><Envelope/></i>
                 <input type="email" id="email" name="email" placeholder="Email" required />
             </div>
             <div className="input-field">
@@ -83,16 +95,16 @@ function RegisterForm() {
 
 
             <div className="input-field">
-                <i className="fas fa-lock"></i>
+                <i ><Lock/></i>
                 <input type="password" id="senha" placeholder="Senha" required />
             </div>
-            <div className="select-btn" id="adicionar_material">
-                <i className="fa-solid fa-recycle" id="icone_material"></i>
-                <span className="btn-text">Materiais que eu recolho</span>
-                <span className="arrow-dwn">
-                    <i className="fa-solid fa-chevron-down"></i>
-                </span>
-            </div>
+
+
+                <div className='drop' style={{width: 375, height: 50, borderRadius: 100, }}>
+                    <DropDown/>
+                    
+                </div>
+        
             <ul id="lista" className="list-items"></ul>
 
             <div className="divbotao">
