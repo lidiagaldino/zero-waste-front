@@ -5,35 +5,35 @@ const sideBar = () => {
 	const menuItems = [
 		{
 			text: "Dashboard",
-			icon: "icons/grid.svg",
+			icon: {/*"icons/grid.svg",*/}
 		},
 		{
 			text: "Admin Profile",
-			icon: "icons/user.svg",
+			icon: {/*"icons/grid.svg",*/}
 		},
 		{
 			text: "Messages",
-			icon: "icons/message.svg",
+			icon: {/*"icons/grid.svg",*/}
 		},
 		{
 			text: "Analytics",
-			icon: "icons/pie-chart.svg",
+			icon: {/*"icons/grid.svg",*/}
 		},
 		{
 			text: "File Manager",
-			icon: "icons/folder.svg",
+			icon: {/*"icons/grid.svg",*/}
 		},
 		{
 			text: "Orders",
-			icon: "icons/shopping-cart.svg",
+			icon: {/*"icons/grid.svg",*/}
 		},
 		{
 			text: "Saved Items",
-			icon: "icons/heart.svg",
+			icon: {/*"icons/grid.svg",*/}
 		},
 		{
 			text: "Settings",
-			icon: "icons/settings.svg",
+			icon: {/*"icons/grid.svg",*/}
 		},
 	];
 	return (
@@ -69,7 +69,7 @@ const sideBar = () => {
 							className={isExpanded ? "menu-item" : "menu-item menu-item-NX"}
 							href="#"
 						>
-							<img className="menu-item-icon" src={icon} alt=""  />
+							<img className="menu-item-icon" src="" alt=""  />
 							{isExpanded && <p>{text}</p>}
 						</a>
 					))}
