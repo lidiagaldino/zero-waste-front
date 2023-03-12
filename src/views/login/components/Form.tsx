@@ -28,27 +28,32 @@ const form = () => {
       return
     }
 
-    const user = {
+    const usuario = {
       email: emailState.value,
       senha: passState.value
     }
 
     const teste = await fetch('https://webappdeploy-backend.azurewebsites.net/user/auth', {
       method: 'POST',
-      body: JSON.stringify(user),
+      body: JSON.stringify(usuario),
       headers: {
         'content-type': 'application/json'
       }
     })
 
-    setEmailState({value: ''})
-    setPassState({value: ''})
+    const responde = await teste.json()
+
+    setEmailState({ value: '' })
+    setPassState({ value: '' })
 
     if (teste.ok) {
+      localStorage.setItem('token', responde.token)
+      localStorage.setItem('nome', responde.user.pessoa_juridica.length > 0 ? responde.user.pessoa_juridica[0].nome_fantasia : responde.user.pessoa_fisica[0].nome)
+      localStorage.setItem('tipo', responde.user.catador.length > 0 ? 'Catador' : 'Gerador')
       navigate('/home')
     }
 
-    console.log(teste)
+    console.log(responde.user.token)
   }
 
   return (
