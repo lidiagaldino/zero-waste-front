@@ -52,8 +52,6 @@ const form = () => {
       localStorage.setItem('tipo', responde.user.catador.length > 0 ? 'Catador' : 'Gerador')
       navigate('/home')
     }
-
-    console.log(responde.user.token)
   }
 
   return (

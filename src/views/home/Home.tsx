@@ -1,10 +1,22 @@
 import React from 'react'
-import sideBar from './components/sideBar'
+import MenuLateral from './components/MenuLateral'
+import HomePage from './components/HomePage'
+import './styles/main.css'
 
-const Home = () => {
+
+const Home = () => {  
   return (
+    <body>
+        <div className='containerr'>
     <div>
+      <MenuLateral/>
+    </div>  
+    <section className='home-section'>
+      <HomePage/>
+    </section>
     </div>
+    </body>
+  
   )
 }
 

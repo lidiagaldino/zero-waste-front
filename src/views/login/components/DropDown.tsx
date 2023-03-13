@@ -1,13 +1,12 @@
 import React, { useState } from "react";
-import {MultiSelect} from "react-multi-select-component";
-import drop from '../styles/drop.css'
+import Select from "react-select";
+import '../styles/drop.css'
 
 const DropDown: React.FC = () => {
   const options = [
     { label: "Plastico", value: "Plastico" },
     { label: "Vidros", value: "Vidros" },
     { label: "Organicos", value: "Organicos"},
-
   ];
 
 
@@ -17,15 +16,16 @@ const DropDown: React.FC = () => {
  
 
   return (
-    <div className="dropdown-content">
+    <div className="dropdown">
   
-      <MultiSelect 
-        options={options}
-        value={selected}
-        onChange={setSelected}
-        labelledBy="Selecionado"
-        className="dropc"
-        search="Buscar"/>  
+  <Select
+    defaultValue={[options[2], options[3]]}
+    isMulti
+    name="materials"
+    options={options}
+    className="basic-multi-select"
+    classNamePrefix="select"
+  />
     </div>
   );
 };
