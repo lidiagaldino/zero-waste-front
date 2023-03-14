@@ -27,7 +27,7 @@ input {
 
 .side-nav-container {
 	background-color: #11101D;
-	width: 350px;
+	width: 340px;
 	height: 100vh;
 	position: relative;
 	color: var(--light);
@@ -43,7 +43,7 @@ input {
 	position: absolute;
   left: calc(100% + 15px);
   z-index: 3;
-  background: #fff;
+  
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
   padding: 6px 12px;
   border-radius: 4px;
@@ -80,19 +80,26 @@ input {
 .nav-brand {
 	display: flex;
 	align-items: center;
-	justify-content: center;
-	padding-top: 22px;
+	
+	padding-top: 13px;
+	padding-left: 13px;
 	color: var(--light);
+	
 
 }
 .nav-brand .icon-logo {
-	font-size: 2rem;
+	font-size: 28px;
 	padding: 0 10px;
+}
+
+.nav-brand h2 {
+
+	font-size: 20px;
 }
 
 .hamburger {
 	position: absolute;
-	top: 35px;
+	top: 28px;
 	right: 25px;
 	background: none;
 	border: none;
@@ -163,9 +170,10 @@ input {
 	align-items: center;
 	justify-content: center ;
 	display: flex;
-	transition: all ease-in-out .5s;
-	gap: 10px;
+	transition: all 0.4s ease;
+	gap: 15px;
 	padding: 5px;
+	
 }
 
 .menu-item-NX {
@@ -175,11 +183,13 @@ input {
 }
 .menu-item:hover{
 	background-color: var(--light);
+	padding-left: 10px;
 }
 
 .icon{
 	color: #ffffff;
-	transition: all ease-in-out .5s;
+	transition: all 0.4s ease;
+	font-size: 18px;
 }
 
 .menu-item-NX {
@@ -190,6 +200,8 @@ input {
 	height: 50px;
 	margin: 6px;
 	margin-left: 20px;
+	font-size: 18px;
+	border-radius: 12px;
 }
 
 .menu-item-NX .icon:hover{
@@ -203,7 +215,7 @@ input {
 }
 
 .menu-item p {
-	width: 100%;
+	width: 110%;
 	height: 100%;
 	color: var(--light);
 	display: flex;
@@ -217,20 +229,24 @@ input {
 
 .nav-footer {
 	width: 110%;
-	height: 87px;
+	height: 75px;
 	position: absolute;
 	bottom: 0;
+	
 	grid-template-rows: 1fr;
 	grid-template-columns: 2fr 1fr;
+	background-color: #1d1b31;
 }
 
 .nav-details {
+	cursor: pointer;
 	display: flex;
 }
 .nav-details img {
-	width: 80px;
-	height: 80px
-	;
+	width: 70px;
+	height: 70px;
+	margin-top: 8px;
+	margin-left: 8px;
 }
 
 .nav-footer-user-name {
@@ -261,12 +277,13 @@ input {
 }
 
 .logout-icon {
-	width: 30px;
+	width: 40px;
 	margin: auto;
 	border-radius: 90px;
 	padding: 20px;
 	margin-left: 5px;
 }
 .logout-icon:hover {
-	background-color: var(--primary);
+	background: #1d1b31;
+    transition: all 0.5s ease;
 }

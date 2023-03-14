@@ -3,6 +3,7 @@ import Select from "react-select";
 import '../styles/drop.css'
 
 const DropDown: React.FC = () => {
+  
   const options = [
     { label: "Plastico", value: "Plastico" },
     { label: "Vidros", value: "Vidros" },
@@ -12,6 +13,11 @@ const DropDown: React.FC = () => {
 
 
   const [selected, setSelected] = useState([]);
+
+  const handleChange = (value: any) => {
+    console.log(value);
+    setSelected(value)
+  }
 
  
 
@@ -25,6 +31,7 @@ const DropDown: React.FC = () => {
     options={options}
     className="basic-multi-select"
     classNamePrefix="select"
+    onChange={handleChange}
   />
     </div>
   );

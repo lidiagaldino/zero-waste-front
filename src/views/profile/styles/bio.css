@@ -110,25 +110,6 @@ header {
 }
 
 
-.container .card {
-    background: var(--glass-bg);
-    backdrop-filter: blur(3rem);
-    border-radius: 20px;
-    box-shadow: 0 0 25px rgba(0, 0, 0, 0.153);
-    padding: var(--p-1-5);
-
-}
-
-
-.container header {
-    padding: 0 var(--p-2-5);
-}
-
-.container header .brandLogo {
-    display: flex;
-    align-items: center;
-}
-
 .container header .brandLogo figure img {
     width: 3.5rem;
     height: 3.5rem;
@@ -140,17 +121,23 @@ header {
     margin-left: var(--m-0-5);
 }
 
+figure img{
+    border-radius: 50%;
+}
 
-.container .userProfile {
-    position: relative;
+.userProfile{
     display: flex;
-    justify-content: center;
     align-items: center;
-    padding: 0;
-    background: none;
-    backdrop-filter: none;
-    box-shadow: none;
+    justify-content: center;
+}
 
+.userDetails, .work_skills, .timeline_about, .userProfile{
+    border-radius: 20px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.153);
+}
+
+.work_skills{
+    padding: 20px;
 }
 
 .container .userProfile .profile figure img {
@@ -160,21 +147,10 @@ header {
     border: solid 4px green;
 }
 
-.sendMsg a {
-    color: red;
-}
-
-
-
-
-
 .userDetails {
     position: relative;
     padding: var(--p-1-5) var(--p-2-5);
-    gap: 200px;
 }
-
-
 
 .userDetails .userName h1 {
     font-size: var(--xxxl-fs);
